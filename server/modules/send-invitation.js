@@ -10,7 +10,7 @@ let _insertInvitation = ( invite ) => {
 
 let _prepareEmail = ( token ) => {
   let domain = Meteor.settings.private.domain;
-  let url    = `http:${ domain }/invite/${ token }`;
+  let url    = http:${ domain }/invite/${ token };
 
   SSR.compileTemplate( 'invitation', Assets.getText( 'email/templates/invitation.html' ) );
   let html = SSR.render( 'invitation', { url: url } );
@@ -21,8 +21,8 @@ let _prepareEmail = ( token ) => {
 let _sendInvitation = ( email, content ) => {
   Email.send({
     to: email,
-    from: "Jan Bananasmith <jan@banana.co>",
-    subject: "Invitation to Banana Co.",
+    from: "Stuart Tiedemann <stuarttiedemann@yahoo.com>",
+    subject: "Invitation to Beach Babe Books",
     html: content
   });
 };
