@@ -19,6 +19,7 @@ let _prepareEmail = ( token ) => {
 };
 
 let _sendInvitation = ( email, content ) => {
+  console.log("Made It!");
   Email.send({
     to: email,
     from: "Stuart Tiedemann <stuarttiedemann@yahoo.com>",
