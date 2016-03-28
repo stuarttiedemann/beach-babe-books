@@ -10,7 +10,7 @@ let _insertInvitation = ( invite ) => {
 
 let _prepareEmail = ( token ) => {
   let domain = Meteor.settings.private.domain;
-  let url    = http:${ domain }/invite/${ token };
+  let url    = `http:${ domain }/invite/${ token }`;
 
   SSR.compileTemplate( 'invitation', Assets.getText( 'email/templates/invitation.html' ) );
   let html = SSR.render( 'invitation', { url: url } );
