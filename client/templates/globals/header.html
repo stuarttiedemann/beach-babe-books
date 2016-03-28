@@ -1,0 +1,12 @@
+<template name="header">
+	<nav class="navbar navbar-inverse" role="navigation">
+	  <div class="container">
+	    	{{#if currentUser}}
+					{{> authenticatedNavigation}}
+	      {{else}}
+	      	{{> publicNavigation}}
+	      {{/if}}
+	    
+	  </div>
+	</nav>
+</template>

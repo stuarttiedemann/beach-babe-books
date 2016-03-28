@@ -1,0 +1,1 @@
+Liked = new Mongo.Collection('liked');

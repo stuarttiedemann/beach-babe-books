@@ -1,0 +1,61 @@
+<template name="home">
+	<header class="text-center">
+		<h1>WELCOME TO BEACH BABE BOOKS</h1>
+		<h3>Let's Read Something Great!</h3>
+		{{> flashMessages}}
+	</header>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<form method="post" class="submit-posts">
+				<div class="form-group">
+					<label for="new-post"> SUGGEST A BOOK TO READ</label>
+					<textarea class="form-control" rows="2" name="newPost" id="new-post" required></textarea>
+				</div>
+				<input type="submit" class="btn btn-primary" value="Post it!">
+			</form>
+		</div>
+	</div>
+	<div class="row">
+  		<div class="col-md-12 text-center">
+  			<h2>Recent Posts</h2>
+  		</div>
+  	</div>	
+  	<div class="row">
+  		<div class="col-md-8 col-md-offset-2">
+  			<ul>
+	  			{{#each posts}}
+	  			<li class="post-body" name="newPosts">{{newPosts}}<br/>
+	  				<span>Created: {{formatDate createdAt}}</span>
+	  				{{#if isOwner}}
+	  					<button class="btn btn-danger delete">Delete</button>
+	  				{{else}}
+	  					{{#if currentUser}}
+	  						<input type="checkbox" checked={{checked}} class="toggle-checked liked"><span class="follow">Follow</span>
+	  					{{/if}}
+	  				{{/if}}
+	  				<div class="ranking">
+	  					<div class="number-likes">
+	  						<p>Likes:{{count}}</p>
+	  					</div>
+	  					{{#if currentUser}}
+		  					<div class="thumbs">
+
+		  						<div class="thumbs-up">
+		  							<span class="glyphicon glyphicon-thumbs-up"></span>
+		  						</div>
+		  						<div class="thumbs-down">
+		  							<span class="glyphicon glyphicon-thumbs-down"></span>
+		  						</div>
+		  					</div>
+	  					{{/if}}
+	  				</div>
+	  			</li>
+	  			{{else}}
+	  			<li>
+	  				<p>There are no posts yet</p>
+	  			</li>
+	  			{{/each}}
+	  		</ul>
+  		</div>
+  	</div>
+</template>
