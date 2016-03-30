@@ -1,3 +1,3 @@
-// Here goes another shot at this.
+// Why doesn't git ignore actually git ignore?
 
-password = testpassword;
+password = testpasswordsomethingsomething;
